@@ -1,10 +1,37 @@
 ﻿
+// ______________________GENERAL VARIABLES______________________
+
+let buttonSelected;
+
+let whatsappContact = "";
+let user = "";
+let password = "";
+let profile = "";
+
+let pin = "";
+createRandomPin()
+let pinCopy = pin;
+
+let expirationDate = "";
+createExpirationDate();
+let expirationDateCopy = expirationDate;
+
+
+
+
+
+
+
+
+
+
 // ______________________HTML SELECTORS______________________
 
 
-// _____OUTSIDE THE DOM_____
+// _____OUTSIDE THE DOM AND OTHERS_____
 
 const alertCopy = document.getElementById("alertCopy");
+const AllElementsToCopy = document.querySelectorAll(".elementToCopy");
 const arrowBack = document.getElementById("arrowBack");
 
 
@@ -53,6 +80,8 @@ const inputCheckboxPin = document.getElementById("inputCheckboxPin");
 const labelCheckboxDate = document.getElementById("labelCheckboxDate");
 const inputCheckboxDate = document.getElementById("inputCheckboxDate");
 
+const AllInputs = document.querySelectorAll(".input");
+const AllNonGeneralInputs = document.querySelectorAll(".nonGeneralInput");
 const AllProfileInputs = document.querySelectorAll(".inputProfiles");
 
 
@@ -75,67 +104,39 @@ const note = document.getElementById("note");
 const titleCalendar = document.getElementById("titleCalendar");
 const calendar = document.getElementById("calendar");
 
-
-const AllElementsToCopy = document.querySelectorAll(".elementToCopy");
-
+const AllNonGeneralOutputs = document.querySelectorAll(".nonGeneralOutput");
 
 
 
 
-// ______GENERAL VARIABLES______
-
-let buttonSelected;
-let whatsappContact = "";
-let user = "";
-let password = "";
-let profile = "";
-
-let pin = "";
-createRandomPin()
-let pinCopy = pin;
-
-let expirationDate = "";
-createExpirationDate();
-let expirationDateCopy = expirationDate;
 
 
 
-// ___________GENERAL LISTENER___________
 
-// __Click on a button__
-
-AllProfileButtons.forEach((button) => {  
-  button.addEventListener("click", () => {
-    containerPage1.style.display = "None";
-    containerPage2.style.display = "flex";
-
-    buttonSelected = button;
-
-    updateTemplate()
-
-  });
-});
+// ______________________FUNCTIONS______________________
 
 
-// __Change in a input__
+// ______UPDATE TEXTCONTENT OF OUTPUTS______
 
-AllProfileInputs.forEach((input) => {  
-  input.addEventListener("input", updateTemplate);
+function updateTextContentOfOutputs(){
+  pinToCopy.textContent = pin;
+  profileToCopy.textContent = profile.toUpperCase();
+  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
+  note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
+  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} nft ${whatsappContact.toUpperCase()}`;
+}
 
-});
 
+// ______RESTORE ALL VARIABLES TO DEFAULT______
 
-// __Back Page 1__
-
-  
-arrowBack.addEventListener("click", () => {
+function restoreAllVariablesToDefault(){
 
   buttonSelected = "";
 
+  whatsappContact = "";
   user = "";
   password = "";
   profile = "";
-  whatsappContact = "";
 
   pin = "";
   createRandomPin()
@@ -144,53 +145,52 @@ arrowBack.addEventListener("click", () => {
   expirationDate = "";
   createExpirationDate();
   expirationDateCopy = expirationDate;
-
-  inputWhatsapp.value = "";
-  inputUser.value = "";
-  inputPassword.value = "";
-  inputProfile.value = "";
-
-  inputCheckboxPin.checked = false;
-  inputPin.value = "";
-
-  inputCheckboxDate.checked = false;
-  inputDate.value = "";
-
-  labelCheckboxPin.style.display = "none";
-  inputCheckboxPin.style.display = "none";
-
-  inputPin.style.display = "none";
-  inputDate.style.display = "none";
-
-  containerPage1.style.display = "flex";
-  containerPage2.style.display = "none";
-});
+}
 
 
 
 
-// __COPY__
 
-AllElementsToCopy.forEach((element) => {  
-  element.addEventListener("click", () => {
-    navigator.clipboard.writeText(element.textContent)
+// ______HIDE ALL INPUTS NO GENERAL______
 
-    alertCopy.style.display = "inline-block";
+function hideAllInputsNoGeneral(){
 
-    setTimeout(() => {
-      alertCopy.style.display = "none";
-    }, 1000);
-
+  AllNonGeneralInputs.forEach((element) => {
+    element.style.display = "none";
   });
-});
+}
 
 
 
 
 
+// ______HIDE ALL INPUTS NO GENERAL______
 
-// ___________FUNCTION: CREATE EXPIRATION DATE___________
+function hideAllOutputsNoGeneral(){
 
+  AllNonGeneralOutputs.forEach((element) => {
+    element.style.display = "none";
+  });
+}
+
+
+
+
+// ______CLEAR ALL INPUTS______
+
+function clearAllInputs(){
+
+  AllInputs.forEach((input) => {
+    input.value = "";
+    input.checked = false;
+  });
+}
+
+
+
+
+
+// ______CREATE EXPIRATION DATE______
 
 function createExpirationDate(){
   let date = new Date();
@@ -205,21 +205,23 @@ function createExpirationDate(){
 
 
 
-// ___________FUNCTION: CREATE RANDOM PIN___________
 
+
+// ______CREATE RANDOM PIN______
 
 function createRandomPin(){
   pin = Math.floor(1000 + Math.random() * 9000);
 }
 
 
-// ___________FUNCTION: UPDATE TEMPLATE___________
 
 
-function updateTemplate(){
 
-  inputWhatsapp.style.display = "inline-block";
+// ______UPDATE ALL______
 
+function updateAll(){
+
+// Update variables with the content of the inputs
 
   user = inputUser.value;
   password = inputPassword.value;
@@ -232,7 +234,6 @@ function updateTemplate(){
     pin = inputPin.value;
   }
 
-
   if(inputCheckboxDate.checked){
     inputDate.style.display = "inline-block";
     expirationDate = inputDate.value;
@@ -243,209 +244,48 @@ function updateTemplate(){
   }
 
 
-  // Netflix
 
-  if(buttonSelected === buttonProfileNetflix){
-    createTemplateNetflix();
 
-    inputProfile.style.display = "inline-block";
-    inputPin.style.display = "inline-block";
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
+// Display HTML elements according to service
 
+  // __Netflix__
 
-    titlePinToCopy.style.display = "inline-block";
-    pinToCopy.style.display = "inline-block";
+  if(buttonSelected === buttonProfileNetflix){createTemplateNetflix()}
 
-    titleProfileToCopy.style.display = "inline-block";
-    profileToCopy.style.display = "inline-block";
 
-    titleCellInTemplate.style.display = "inline-block";
-    cellInTemplate.style.display = "inline-block";
+  // __Netflix ME__
 
-    titleNote.style.display = "inline-block";
-    note.style.display = "inline-block";
+  if(buttonSelected === buttonProfileNetflixMe){createTemplateNetflixMe()}
 
-    titleCalendar.style.display = "inline-block";
-    calendar.style.display = "inline-block";
-  
-  }
 
+  // __Disney__
 
-  // Netflix ME
+  if(buttonSelected === buttonProfileDisney){createTemplateDisney()}
 
-  if(buttonSelected === buttonProfileNetflixMe){
-    createTemplateNetflixMe();
 
-    inputWhatsapp.style.display = "none";
+  // __Max__
 
-    inputProfile.style.display = "inline-block";
-    inputPin.style.display = "inline-block";
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
+  if(buttonSelected === buttonProfileMax){createTemplateMax()}
 
-    titleProfileToCopy.style.display = "inline-block";
-    profileToCopy.style.display = "inline-block";  
-  }
 
+  // __Prime Video__
 
-  // Disney
+  if(buttonSelected === buttonProfilePrimeVideo){createTemplatePrimeVideo()}
 
-  if(buttonSelected === buttonProfileDisney){
-    createTemplateDisney();
 
-    inputProfile.style.display = "inline-block";
-    inputPin.style.display = "inline-block";
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
+  // __FlujoTv__
 
+  if(buttonSelected === buttonProfileFlujoTv){createTemplateFlujoTv()}
 
-    titlePinToCopy.style.display = "inline-block";
-    pinToCopy.style.display = "inline-block";
 
-    titleProfileToCopy.style.display = "inline-block";
-    profileToCopy.style.display = "inline-block";
+  // __Paramount__
 
-    titleCellInTemplate.style.display = "inline-block";
-    cellInTemplate.style.display = "inline-block";
+  if(buttonSelected === buttonProfileParamount){createTemplateParamount()}
 
-    titleNote.style.display = "inline-block";
-    note.style.display = "inline-block";
 
-    titleCalendar.style.display = "inline-block";
-    calendar.style.display = "inline-block";
+  // __Crunchyroll__
 
-  }
-
-
-  // Max
-
-  if(buttonSelected === buttonProfileMax){
-    createTemplateMax();
-
-    inputProfile.style.display = "inline-block";
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
-
-    titleProfileToCopy.style.display = "inline-block";
-    profileToCopy.style.display = "inline-block";
-
-    titleCellInTemplate.style.display = "inline-block";
-    cellInTemplate.style.display = "inline-block";
-
-    titleNote.style.display = "inline-block";
-    note.style.display = "inline-block";
-
-    titleCalendar.style.display = "inline-block";
-    calendar.style.display = "inline-block";
-
-    labelCheckboxPin.style.display = "inline-block";
-    inputCheckboxPin.style.display = "inline-block";
-
-  }
-
-
-  // Prime Video
-
-  if(buttonSelected === buttonProfilePrimeVideo){
-    createTemplatePrimeVideo();
-
-    inputProfile.style.display = "inline-block";
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
-
-    titleProfileToCopy.style.display = "inline-block";
-    profileToCopy.style.display = "inline-block";
-
-    titleCellInTemplate.style.display = "inline-block";
-    cellInTemplate.style.display = "inline-block";
-
-    titleNote.style.display = "inline-block";
-    note.style.display = "inline-block";
-
-    titleCalendar.style.display = "inline-block";
-    calendar.style.display = "inline-block";
-
-    labelCheckboxPin.style.display = "inline-block";
-    inputCheckboxPin.style.display = "inline-block";
-  }
-
-
-  // FlujoTv
-
-  if(buttonSelected === buttonProfileFlujoTv){
-
-    createTemplateFlujoTv();
-
-    inputProfile.style.display = "inline-block";
-
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
-
-    titleCellInTemplate.style.display = "inline-block";
-    cellInTemplate.style.display = "inline-block";
-
-    titleNote.style.display = "inline-block";
-    note.style.display = "inline-block";
-
-    titleCalendar.style.display = "inline-block";
-    calendar.style.display = "inline-block";
-  
-  }
-
-
-  // Paramount
-
-  if(buttonSelected === buttonProfileParamount){
-    createTemplateParamount();
-
-    inputProfile.style.display = "inline-block";
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
-
-    titleProfileToCopy.style.display = "inline-block";
-    profileToCopy.style.display = "inline-block";
-
-    titleCellInTemplate.style.display = "inline-block";
-    cellInTemplate.style.display = "inline-block";
-
-    titleNote.style.display = "inline-block";
-    note.style.display = "inline-block";
-
-    titleCalendar.style.display = "inline-block";
-    calendar.style.display = "inline-block";
-
-    labelCheckboxPin.style.display = "inline-block";
-    inputCheckboxPin.style.display = "inline-block";
-  }
-
-
-  // Crunchyroll
-
-  if(buttonSelected === buttonProfileCrunchyroll){
-    createTemplateCrunchyroll();
-
-    inputProfile.style.display = "inline-block";
-    inputCheckboxDate.style.display = "inline-block";
-    labelCheckboxDate.style.display = "inline-block";
-
-    titleProfileToCopy.style.display = "inline-block";
-    profileToCopy.style.display = "inline-block";
-
-    titleCellInTemplate.style.display = "inline-block";
-    cellInTemplate.style.display = "inline-block";
-
-    titleNote.style.display = "inline-block";
-    note.style.display = "inline-block";
-
-    titleCalendar.style.display = "inline-block";
-    calendar.style.display = "inline-block";
-
-    labelCheckboxPin.style.display = "inline-block";
-    inputCheckboxPin.style.display = "inline-block";
-  }
-
-
+  if(buttonSelected === buttonProfileCrunchyroll){createTemplateCrunchyroll()}
 
 
 
@@ -480,9 +320,34 @@ function updateTemplate(){
 
 
 
-// ___________FUNCTIONS: CREATE PROFILES___________
+// ______CREATE PROFILES______
+
 
 function createTemplateNetflix(){
+
+  // Show elements HTML
+
+  inputWhatsapp.style.display = "inline-block";
+  inputProfile.style.display = "inline-block";
+  inputPin.style.display = "inline-block";
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titlePinToCopy.style.display = "inline-block";
+  titleProfileToCopy.style.display = "inline-block";
+  titleCellInTemplate.style.display = "inline-block";
+  titleNote.style.display = "inline-block";
+  titleCalendar.style.display = "inline-block";
+
+  pinToCopy.style.display = "inline-block";
+  profileToCopy.style.display = "inline-block";
+  cellInTemplate.style.display = "inline-block";
+  note.style.display = "inline-block";
+  calendar.style.display = "inline-block";  
+
+
+  // Show template
+
   containertemplate.textContent = `*NETFLIX*
 
 📧 *USUARIO* ${user}
@@ -500,11 +365,8 @@ _*Normas de uso*_
 ❌ No cambiar el nombre de su perfil.
 ❗️ Pasar por alto estas normas conllevará que pierda su perfil y su garantía.`;
 
-  pinToCopy.textContent = pin;
-  profileToCopy.textContent = profile.toUpperCase();
-  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
-  note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
-  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} nft ${whatsappContact.toUpperCase()}`;
+  updateTextContentOfOutputs();
+
 }
 
 
@@ -513,6 +375,20 @@ _*Normas de uso*_
 
 
 function createTemplateNetflixMe(){
+
+  // Show elements HTML
+
+  inputProfile.style.display = "inline-block";
+  inputPin.style.display = "inline-block";
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titleProfileToCopy.style.display = "inline-block";
+  profileToCopy.style.display = "inline-block";  
+
+
+  // Show template
+
   containertemplate.textContent = `NETFLIX
 MIEMBRO EXTRA
 
@@ -521,7 +397,7 @@ MIEMBRO EXTRA
 👤 Usuario: ${profile}
 📆 Vence: ${expirationDate}`;
 
-  profileToCopy.textContent = profile.toUpperCase();
+  updateTextContentOfOutputs();
 
 }
 
@@ -530,6 +406,30 @@ MIEMBRO EXTRA
 
 
 function createTemplateDisney(){
+
+  // Show elements HTML
+
+  inputWhatsapp.style.display = "inline-block";
+  inputProfile.style.display = "inline-block";
+  inputPin.style.display = "inline-block";
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titlePinToCopy.style.display = "inline-block";
+  titleProfileToCopy.style.display = "inline-block";
+  titleCellInTemplate.style.display = "inline-block";
+  titleNote.style.display = "inline-block";
+  titleCalendar.style.display = "inline-block";
+
+  pinToCopy.style.display = "inline-block";
+  profileToCopy.style.display = "inline-block";
+  cellInTemplate.style.display = "inline-block";
+  note.style.display = "inline-block";
+  calendar.style.display = "inline-block";
+
+
+  // Show template
+
   containertemplate.textContent = `*DISNEY+*
 
 📧 *USUARIO* ${user}
@@ -544,11 +444,8 @@ _*Normas*_
 ❗️ *- Verifique estar escribiendo bien los datos de la cuenta, sobre todo la contraseña (si lleva mayúsculas, minúsculas, símbolos, colóquelos segun lo indicado)*
 *❗️-Evite cerrar sesión*`;
 
-  pinToCopy.textContent = pin;
-  profileToCopy.textContent = profile.toUpperCase();
-  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
-  note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
-  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} disn ${whatsappContact.toUpperCase()}`;
+  updateTextContentOfOutputs();
+
 }
 
 
@@ -557,6 +454,30 @@ _*Normas*_
 
 function createTemplateMax(){
 
+  // Show elements HTML
+
+  inputWhatsapp.style.display = "inline-block";
+  inputProfile.style.display = "inline-block";
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titleProfileToCopy.style.display = "inline-block";
+  titleCellInTemplate.style.display = "inline-block";
+  titleNote.style.display = "inline-block";
+  titleCalendar.style.display = "inline-block";
+
+  profileToCopy.style.display = "inline-block";
+  cellInTemplate.style.display = "inline-block";
+  note.style.display = "inline-block";
+  calendar.style.display = "inline-block";
+
+  labelCheckboxPin.style.display = "inline-block";
+  inputCheckboxPin.style.display = "inline-block";
+
+
+
+  // Show template
+
   if(inputCheckboxPin.checked){
     containertemplate.textContent = `*MAX*
 
@@ -572,8 +493,7 @@ function createTemplateMax(){
     titlePinToCopy.style.display = "inline-block";
     pinToCopy.style.display = "inline-block";
 
-    pinToCopy.textContent = pin;
-    note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
+    updateTextContentOfOutputs();
 
   } else{
     containertemplate.textContent = `*MAX*
@@ -584,7 +504,7 @@ function createTemplateMax(){
 👤 *PERFIL* ${profile}
 📆 *VENCE* ${expirationDate}`;
 
-    note.textContent = `${whatsappContact.toUpperCase()}`;
+    updateTextContentOfOutputs();
 
     inputPin.style.display = "none";
 
@@ -593,9 +513,7 @@ function createTemplateMax(){
 
   }
 
-  profileToCopy.textContent = profile.toUpperCase();
-  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
-  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} max ${whatsappContact.toUpperCase()}`;
+  updateTextContentOfOutputs();
 }
 
 
@@ -604,6 +522,29 @@ function createTemplateMax(){
 
 function createTemplatePrimeVideo(){
 
+  // Show elements HTML
+
+  inputWhatsapp.style.display = "inline-block";
+  inputProfile.style.display = "inline-block";
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titleProfileToCopy.style.display = "inline-block";
+  titleCellInTemplate.style.display = "inline-block";
+  titleNote.style.display = "inline-block";
+  titleCalendar.style.display = "inline-block";
+
+  profileToCopy.style.display = "inline-block";
+  cellInTemplate.style.display = "inline-block";
+  note.style.display = "inline-block";
+  calendar.style.display = "inline-block";
+
+  labelCheckboxPin.style.display = "inline-block";
+  inputCheckboxPin.style.display = "inline-block";
+
+
+  // Show template
+
   if(inputCheckboxPin.checked){
     containertemplate.textContent = `*AMAZON PRIME VIDEO*
 
@@ -626,9 +567,7 @@ _*Normas*_
     titlePinToCopy.style.display = "inline-block";
     pinToCopy.style.display = "inline-block";
 
-    pinToCopy.textContent = pin;
-    note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
-
+    updateTextContentOfOutputs();
 
   } else{
     containertemplate.textContent = `*AMAZON PRIME VIDEO*
@@ -646,8 +585,7 @@ _*Normas*_
 
 ❗️ *_No hacer compras o realizar pedidos a través de Amazon, ni ingresar a la página de Amazon compras. Perderá garantía_*`;
 
-
-    note.textContent = `${whatsappContact.toUpperCase()}`;
+    updateTextContentOfOutputs();
 
     inputPin.style.display = "none";
 
@@ -656,9 +594,7 @@ _*Normas*_
 
   }
 
-  profileToCopy.textContent = profile.toUpperCase();
-  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
-  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} prime ${whatsappContact.toUpperCase()}`;
+  updateTextContentOfOutputs();
 }
 
 
@@ -666,6 +602,26 @@ _*Normas*_
 
 
 function createTemplateFlujoTv(){
+
+  // Show elements HTML
+
+  inputWhatsapp.style.display = "inline-block";
+  inputProfile.style.display = "inline-block";
+
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titleCellInTemplate.style.display = "inline-block";
+  titleNote.style.display = "inline-block";
+  titleCalendar.style.display = "inline-block";
+
+  cellInTemplate.style.display = "inline-block";
+  note.style.display = "inline-block";
+  calendar.style.display = "inline-block";
+
+
+  // Show template  
+
   containertemplate.textContent = `*FlujoTV* | ${profile}
 1 dispositivo
 
@@ -676,9 +632,7 @@ function createTemplateFlujoTv(){
 *❌Prohibido cambiar la clave*`;
 
 
-  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
-  note.textContent = `${whatsappContact.toUpperCase()}`;
-  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} flujo ${whatsappContact.toUpperCase()}`;
+  updateTextContentOfOutputs();
 }
 
 
@@ -687,8 +641,32 @@ function createTemplateFlujoTv(){
 
 function createTemplateParamount(){
 
+  // Show elements HTML
+
+  inputWhatsapp.style.display = "inline-block";
+  inputProfile.style.display = "inline-block";
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titleProfileToCopy.style.display = "inline-block";
+  titleCellInTemplate.style.display = "inline-block";
+  titleNote.style.display = "inline-block";
+  titleCalendar.style.display = "inline-block";
+
+  profileToCopy.style.display = "inline-block";
+  cellInTemplate.style.display = "inline-block";
+  note.style.display = "inline-block";
+  calendar.style.display = "inline-block";
+
+  labelCheckboxPin.style.display = "inline-block";
+  inputCheckboxPin.style.display = "inline-block";
+
+
+  // Show template  
+
   if(inputCheckboxPin.checked){
     containertemplate.textContent = `*PARAMOUNT +*
+
 1 dispositivo❗️
 
 📧 *USUARIO* ${user}
@@ -703,11 +681,11 @@ function createTemplateParamount(){
     titlePinToCopy.style.display = "inline-block";
     pinToCopy.style.display = "inline-block";
 
-    pinToCopy.textContent = pin;
-    note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
+    updateTextContentOfOutputs();
 
   } else{
     containertemplate.textContent = `*PARAMOUNT +*
+
 1 dispositivo❗️
 
 📧 *USUARIO* ${user}
@@ -716,7 +694,7 @@ function createTemplateParamount(){
 👤 *PERFIL* ${profile}
 📆 *VENCE* ${expirationDate}`;
 
-    note.textContent = `${whatsappContact.toUpperCase()}`;
+    updateTextContentOfOutputs();
 
     inputPin.style.display = "none";
 
@@ -725,13 +703,8 @@ function createTemplateParamount(){
 
   }
 
-  profileToCopy.textContent = profile.toUpperCase();
-  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
-  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} param ${whatsappContact.toUpperCase()}`;
+  updateTextContentOfOutputs();
 }
-
-
-
 
 
 
@@ -739,6 +712,29 @@ function createTemplateParamount(){
 
 function createTemplateCrunchyroll(){
 
+  // Show elements HTML
+
+  inputWhatsapp.style.display = "inline-block";
+  inputProfile.style.display = "inline-block";
+  inputCheckboxDate.style.display = "inline-block";
+  labelCheckboxDate.style.display = "inline-block";
+
+  titleProfileToCopy.style.display = "inline-block";
+  titleCellInTemplate.style.display = "inline-block";
+  titleNote.style.display = "inline-block";
+  titleCalendar.style.display = "inline-block";
+
+  profileToCopy.style.display = "inline-block";
+  cellInTemplate.style.display = "inline-block";
+  note.style.display = "inline-block";
+  calendar.style.display = "inline-block";
+
+  labelCheckboxPin.style.display = "inline-block";
+  inputCheckboxPin.style.display = "inline-block";
+
+
+  // Show template  
+
   if(inputCheckboxPin.checked){
     containertemplate.textContent = `*CRUNCHYROLL*
 
@@ -756,8 +752,7 @@ function createTemplateCrunchyroll(){
     titlePinToCopy.style.display = "inline-block";
     pinToCopy.style.display = "inline-block";
 
-    pinToCopy.textContent = pin;
-    note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
+    updateTextContentOfOutputs();
 
   } else{
     containertemplate.textContent = `*CRUNCHYROLL*
@@ -770,7 +765,7 @@ function createTemplateCrunchyroll(){
 
 1 dispositivo‼️`;
 
-    note.textContent = `${whatsappContact.toUpperCase()}`;
+    updateTextContentOfOutputs();
 
     inputPin.style.display = "none";
 
@@ -779,10 +774,95 @@ function createTemplateCrunchyroll(){
 
   }
 
-  profileToCopy.textContent = profile.toUpperCase();
-  cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
-  calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} crunchy ${whatsappContact.toUpperCase()}`;
+  updateTextContentOfOutputs();
 }
+
+
+
+
+
+
+
+
+
+
+// ______________________LISTENERS______________________
+
+
+// ______CLICK ON A BUTTON______
+
+AllProfileButtons.forEach((button) => {  
+  button.addEventListener("click", () => {
+
+    containerPage1.style.display = "None";
+    containerPage2.style.display = "flex";
+
+    buttonSelected = button;
+    updateAll()
+
+  });
+});
+
+
+
+
+
+// ______CHANGE IN A INPUT______
+
+AllProfileInputs.forEach((input) => {  
+  input.addEventListener("input", updateAll);
+
+});
+
+
+
+
+
+// ______ARROW BACK PAGE 1______
+  
+arrowBack.addEventListener("click", () => {
+
+  restoreAllVariablesToDefault();
+  clearAllInputs();
+  hideAllInputsNoGeneral();
+  hideAllOutputsNoGeneral();
+
+  // Hide current page and show another
+
+  containerPage1.style.display = "flex";
+  containerPage2.style.display = "none";
+
+});
+
+
+
+
+
+// ______COPY TO CLIPBOARD______
+
+AllElementsToCopy.forEach((element) => {  
+  element.addEventListener("click", () => {
+
+    navigator.clipboard.writeText(element.textContent)
+
+    alertCopy.style.display = "inline-block";
+
+    setTimeout(() => {
+      alertCopy.style.display = "none";
+    }, 1000);
+
+  });
+});
+
+
+
+
+
+
+
+
+
+
 
 
 

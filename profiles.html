@@ -33,39 +33,39 @@
       <span id="arrowBack">↩</span>
 
       <div id="containerinputs">
-        <input type="text" id="inputWhatsapp" class="inputProfiles" placeholder="Contacto en Whatsapp">
-        <input type="text" id="inputUser" class="inputProfiles" placeholder="Usuario">
-        <input type="text" id="inputPassword" class="inputProfiles" placeholder="Contraseña">
-        <input type="text" id="inputProfile" class="inputProfiles" placeholder="Perfil">
+        <input type="text" id="inputWhatsapp" class="input inputProfiles nonGeneralInput" placeholder="Contacto en Whatsapp">
+        <input type="text" id="inputUser" class="input inputProfiles" placeholder="Usuario">
+        <input type="text" id="inputPassword" class="input inputProfiles" placeholder="Contraseña">
+        <input type="text" id="inputProfile" class="input inputProfiles nonGeneralInput" placeholder="Perfil">
 
-        <label id="labelCheckboxPin" for="inputCheckboxPin">Agregar pin</label>
-        <input type="checkbox" id="inputCheckboxPin" class="inputProfiles">
-        <input type="text" id="inputPin" class="inputProfiles" placeholder="Pin">
+        <label id="labelCheckboxPin" for="inputCheckboxPin" class="nonGeneralInput">Agregar pin</label>
+        <input type="checkbox" id="inputCheckboxPin" class="input inputProfiles nonGeneralInput">
+        <input type="text" id="inputPin" class="input inputProfiles nonGeneralInput" placeholder="Pin">
 
         <label id="labelCheckboxDate" for="inputCheckboxDate">Modificar fecha</label>
-        <input type="checkbox" id="inputCheckboxDate" class="inputProfiles">
-        <input type="text" id="inputDate" class="inputProfiles" placeholder="Fecha">
+        <input type="checkbox" id="inputCheckboxDate" class="input inputProfiles">
+        <input type="text" id="inputDate" class="input inputProfiles nonGeneralInput" placeholder="Fecha">
       </div>
 
 
       <div id="containerResults">
         <div id="containertemplate" class="elementToCopy"></div>
+
         <div id="containerExcelElements">
+          <h2 id="titlePinToCopy" class="nonGeneralOutput">Pin</h2>
+          <div id="pinToCopy" class="elementToCopy nonGeneralOutput"></div>
 
-          <h2 id="titlePinToCopy">Pin</h2>
-          <div id="pinToCopy" class="elementToCopy"></div>
+          <h2 id="titleProfileToCopy" class="nonGeneralOutput">Perfil</h2>
+          <div id="profileToCopy" class="elementToCopy nonGeneralOutput"></div>
 
-          <h2 id="titleProfileToCopy">Perfil</h2>
-          <div id="profileToCopy" class="elementToCopy"></div>
+          <h2 id="titleCellInTemplate" class="nonGeneralOutput">Celda en plantilla</h2>
+          <div id="cellInTemplate" class="elementToCopy nonGeneralOutput"></div>
 
-          <h2 id="titleCellInTemplate">Celda en plantilla</h2>
-          <div id="cellInTemplate" class="elementToCopy"></div>
+          <h2 id="titleNote" class="nonGeneralOutput">Nota</h2>
+          <div id="note" class="elementToCopy nonGeneralOutput"></div>
 
-          <h2 id="titleNote">Nota</h2>
-          <div id="note" class="elementToCopy"></div>
-
-          <h2 id="titleCalendar">Calendario</h2>
-          <div id="calendar" class="elementToCopy"></div>
+          <h2 id="titleCalendar" class="nonGeneralOutput">Calendario</h2>
+          <div id="calendar" class="elementToCopy nonGeneralOutput"></div>
         </div>
       </div>
     </article>
