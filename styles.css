@@ -51,7 +51,7 @@
 
 
 
-#containerPage1Profiles{
+#containerPage1{
   height: 100vh;
   width: 100vw;
 
@@ -64,7 +64,7 @@
 }
 
 
-#containerPage1Profiles h1{
+#containerPage1 h1{
   font-size: 70px;
   letter-spacing: 2px;
   position: fixed;
@@ -94,7 +94,7 @@ button{
 
 
 
-#containerPage2Profiles{
+#containerPage2{
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -163,7 +163,7 @@ input{
 
 
 
-#containerPage2Profiles{
+#containerPage2{
   display: none;
 }
 

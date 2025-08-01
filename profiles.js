@@ -1,46 +1,25 @@
-﻿// Spotify de 1 a 12 meses
-
-//Canva de 1 a 12 meses
-
+﻿
+// ______________________HTML SELECTORS______________________
 
 
-// ___________SELECT HTML___________
-
-// CONTAINERS
-
-const containerPage1Profiles = document.getElementById("containerPage1Profiles");
-const containerProfilesButtons = document.getElementById("containerProfilesButtons");
-const containerPage2Profiles = document.getElementById("containerPage2Profiles");
-const containerinputs = document.getElementById("containerinputs");
-const containerResults = document.getElementById("containerResults");
-const containertemplate = document.getElementById("containertemplate");
-const containerExcelElements = document.getElementById("containerExcelElements");
+// _____OUTSIDE THE DOM_____
 
 const alertCopy = document.getElementById("alertCopy");
 const arrowBack = document.getElementById("arrowBack");
 
 
-// INPUTS
+// _____PRINCIPAL CONTAINERS_____
 
-const inputWhatsapp = document.getElementById("inputWhatsapp");
-const inputUser = document.getElementById("inputUser");
-const inputPassword = document.getElementById("inputPassword");
-const inputProfile = document.getElementById("inputProfile");
+const containerPage1 = document.getElementById("containerPage1");
+const containerProfilesButtons = document.getElementById("containerProfilesButtons");
 
-const inputCheckboxPin = document.getElementById("inputCheckboxPin");
-const labelCheckboxPin = document.getElementById("labelCheckboxPin");
-const inputPin = document.getElementById("inputPin");
-
-
-const inputCheckboxDate = document.getElementById("inputCheckboxDate");
-const labelCheckboxDate = document.getElementById("labelCheckboxDate");
-const inputDate = document.getElementById("inputDate");
-const inputMonths = document.getElementById("inputMonths");
-
-const AllProfileInputs = document.querySelectorAll(".inputProfiles");
+const containerPage2 = document.getElementById("containerPage2");
+const containerinputs = document.getElementById("containerinputs");
+const containerResults = document.getElementById("containerResults");
+const containerExcelElements = document.getElementById("containerExcelElements");
 
 
-// BUTTONS PROFILES
+// _____PROFILE BUTTONS_____
 
 const buttonProfileNetflix = document.getElementById("buttonProfileNetflix");
 const buttonProfileNetflixMe = document.getElementById("buttonProfileNetflixMe");
@@ -59,13 +38,29 @@ const buttonProfileCapcut = document.getElementById("buttonProfileCapcut");
 const AllProfileButtons = document.querySelectorAll(".buttonProfile");
 
 
+// _____INPUTS_____
+
+const inputWhatsapp = document.getElementById("inputWhatsapp");
+const inputUser = document.getElementById("inputUser");
+const inputPassword = document.getElementById("inputPassword");
+const inputProfile = document.getElementById("inputProfile");
+const inputPin = document.getElementById("inputPin");
+const inputDate = document.getElementById("inputDate");
+
+const labelCheckboxPin = document.getElementById("labelCheckboxPin");
+const inputCheckboxPin = document.getElementById("inputCheckboxPin");
+
+const labelCheckboxDate = document.getElementById("labelCheckboxDate");
+const inputCheckboxDate = document.getElementById("inputCheckboxDate");
+
+const AllProfileInputs = document.querySelectorAll(".inputProfiles");
 
 
-// OUTPUTS
+// _____OUTPUTS_____
+
+const containertemplate = document.getElementById("containertemplate");
 
 const titlePinToCopy = document.getElementById("titlePinToCopy");
-
-console.log(titlePinToCopy);
 const pinToCopy = document.getElementById("pinToCopy");
 
 const titleProfileToCopy = document.getElementById("titleProfileToCopy");
@@ -99,14 +94,9 @@ let pin = "";
 createRandomPin()
 let pinCopy = pin;
 
-
 let expirationDate = "";
 createExpirationDate();
 let expirationDateCopy = expirationDate;
-
-
-let months = 1;
-let plan = "";
 
 
 
@@ -116,8 +106,8 @@ let plan = "";
 
 AllProfileButtons.forEach((button) => {  
   button.addEventListener("click", () => {
-    containerPage1Profiles.style.display = "None";
-    containerPage2Profiles.style.display = "flex";
+    containerPage1.style.display = "None";
+    containerPage2.style.display = "flex";
 
     buttonSelected = button;
 
@@ -155,10 +145,6 @@ arrowBack.addEventListener("click", () => {
   createExpirationDate();
   expirationDateCopy = expirationDate;
 
-  months = 1;
-  plan = "";
-
-
   inputWhatsapp.value = "";
   inputUser.value = "";
   inputPassword.value = "";
@@ -169,18 +155,15 @@ arrowBack.addEventListener("click", () => {
 
   inputCheckboxDate.checked = false;
   inputDate.value = "";
-  inputMonths.value = "";
-
 
   labelCheckboxPin.style.display = "none";
   inputCheckboxPin.style.display = "none";
 
   inputPin.style.display = "none";
   inputDate.style.display = "none";
-  inputMonths.style.display = "none";
 
-  containerPage1Profiles.style.display = "flex";
-  containerPage2Profiles.style.display = "none";
+  containerPage1.style.display = "flex";
+  containerPage2.style.display = "none";
 });
 
 
@@ -191,7 +174,6 @@ arrowBack.addEventListener("click", () => {
 AllElementsToCopy.forEach((element) => {  
   element.addEventListener("click", () => {
     navigator.clipboard.writeText(element.textContent)
-
 
     alertCopy.style.display = "inline-block";
 
@@ -235,6 +217,9 @@ function createRandomPin(){
 
 
 function updateTemplate(){
+
+  inputWhatsapp.style.display = "inline-block";
+
 
   user = inputUser.value;
   password = inputPassword.value;
@@ -838,9 +823,7 @@ function createTemplateCrunchyroll(){
 📆 FECHA DE VENCIMIENTO`
 
 
-
-
-// 10
+// 10 Spotify de 1 a 12 meses
 
 `*Spotify ***********3******** meses ✅*
 
@@ -849,7 +832,7 @@ function createTemplateCrunchyroll(){
 
 
 
-// 11
+// 11 Canva de 1 a 12 meses
 
 `*KAELUS TV PLUS*
 1 Dispositivo
