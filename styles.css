@@ -1,0 +1,737 @@
+﻿*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-size: 12px;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+/* __________________PÁGINA 1__________________ */
+
+
+#containerPage1{
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 100px;
+
+  background: #113e3e;
+}
+
+
+#containerPage1 div{
+  position: relative;
+  width: 380px;
+  height: 75vh;
+	
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+}
+
+
+#containerPage1 h2{
+  position: absolute;
+  top: -50px;
+  font-size: 40px;
+
+  color: #fff;
+  letter-spacing: 1.5px; 
+}
+
+
+#containerPage1 div button{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 170px;
+  overflow: hidden;
+  height: 50px;
+
+  font-size: 22px;
+  letter-spacing: 1px;
+
+  background: #245454;
+  border: none;
+
+  color: #fff;
+  border-radius: 50px;
+}
+
+
+#containerPage1 div button:hover{
+  cursor: pointer;
+  border: 5px solid #ff0;
+  color: #ff0;
+}
+
+
+
+/* ____MEDIA QUERIES: 700px____ */
+
+
+@media (max-width: 700px) {
+
+  #containerPage1{
+    gap: 70px;
+  }
+
+  #containerPage1 div{
+    width: 260px;
+  }
+
+
+  #containerPage1 div button{
+    width: 125px;
+    font-size: 15px; 
+  }
+
+  #containerPage1 h2{
+    font-size: 30px;
+  }
+}
+
+
+
+/* ____MEDIA QUERIES: 500px____ */
+
+
+@media (max-width: 500px) {
+
+  #containerPage1{
+    gap: 20px;
+  }
+
+  #containerPage1 div{
+    width: 120px;
+    height: 85vh;
+  }
+
+
+  #containerPage1 div button{
+    height: 30px;
+    width: 110px;
+    font-size: 12px; 
+  }
+
+  #containerPage1 h2{
+    font-size: 22px;
+    top: -30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* __________________PÁGINA 2__________________ */
+
+#containerPage2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #113e3e;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+}
+
+
+
+
+/* ___________Inputs___________ */
+
+#containerinputs{
+  min-width: 200px;
+  max-width: 200px;
+
+  height: calc(100vh - 40px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+/* ___Input: Text___ */
+
+input[type="text"]{
+  font-size: 17px;
+  height: 40px;
+  background: #113e3e;
+  padding: 10px;
+  color: #ff0;
+
+  border: none;
+  border-bottom: 5px solid #245454;
+}
+
+
+
+input[type="text"]:hover{
+  cursor: pointer;
+  border-bottom: 5px solid #ff0;
+}
+
+
+
+input[type="text"]:focus {
+  outline: none;
+  border-bottom: 5px solid #ff0;
+}
+
+
+
+input[type="text"]::placeholder{
+  color: #ddd;
+}
+
+
+
+
+
+/* ___Input: Checkbox___ */
+
+#containerinputs label{
+  font-size: 15px;
+  padding: 7px;
+}
+
+
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  border: 5px solid #245454;
+  padding: 10px;
+}
+
+
+
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: #ff0;
+  font-size: 25px;
+  position: absolute;
+  top: 0px;
+}
+
+
+
+input[type="checkbox"]:checked {
+  border: 5px solid #ff0;
+}
+
+
+
+input[type="checkbox"]:hover{
+  cursor: pointer;
+  border: 5px solid #ff0;
+}
+
+
+
+
+
+/* ___Input: Radio___ */
+
+#containerRadioPlanAccountNetflix,
+#containerRadioPlanAccountDisney,
+#containerRadioPlanAccountCrunchyroll{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+
+input[type="radio"]:checked {
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+/* ___________Results___________ */
+
+#containerResults{
+  white-space: pre-line;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+
+
+
+
+/* ___Template___ */
+
+#containertemplate{
+  font-size: 13px;
+  border: 5px solid #245454;
+  padding: 20px;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+
+#containertemplate:hover{
+  border: 5px solid #ff0;
+}
+
+
+
+
+
+/* ___Excel elements___ */
+
+#containerExcelElements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 700px;
+  min-width: 700px;
+  height: 120px;
+  overflow: hidden;
+}
+
+
+
+#containerPinToCopy,
+#containerProfileToCopy,
+#containerCellInTemplate,
+#containerNote,
+#containerCalendar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 132px;
+  max-width: 132px;
+  height: 100%;
+}
+
+
+
+#containerExcelElements h2 {
+  font-size: 17px;
+  height: 20px;
+  text-align: center;
+}
+
+
+
+#containerExcelElements div div {
+  height: 100px;
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-line;
+  text-align: center;
+  font-size: 17px;
+
+}
+
+
+
+#containerPinToCopy:hover h2,
+#containerPinToCopy:hover div,
+#containerProfileToCopy:hover h2,
+#containerProfileToCopy:hover div,
+#containerCellInTemplate:hover h2,
+#containerCellInTemplate:hover div,
+#containerNote:hover h2,
+#containerNote:hover div,
+#containerCalendar:hover h2,
+#containerCalendar:hover div {
+  color: #ff0;
+  font-weight: bold;
+}
+
+
+
+
+
+
+/* ___MEDIA QUERIES: 1000px___ */
+
+@media (max-width: 1000px) {
+  
+  /* __________________PÁGINA 2__________________ */
+
+  #containerPage2{
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+
+  /* ___________Inputs___________ */
+
+  #containerinputs{
+    min-width: 200px;
+    max-width: 200px;
+
+    height: 100vh;
+
+    gap: 10px;
+  }
+
+  /* ___________Results___________ */
+    
+  #containerResults{
+    width: 700px;
+  }
+
+  /* ___________Template___________ */
+
+  #containertemplate{
+    font-size: 13px;
+    border: 5px solid #245454;
+    padding: 20px;
+    max-width: 500px;
+    margin-bottom: 150px;
+    overflow: hidden;
+  }
+
+
+  /* ___________Excel Elements___________ */
+
+  #containerExcelElements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 500px;
+    overflow: hidden;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ___MEDIA QUERIES: 800px___ */
+
+@media (max-width: 800px) {
+  
+  /* __________________PÁGINA 2__________________ */
+
+  #containerPage2{
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+
+  /* ___________Inputs___________ */
+
+  #containerinputs{
+    min-width: 200px;
+    max-width: 200px;
+
+    height: 100vh;
+
+    gap: 10px;
+  }
+
+  /* ___________Results___________ */
+    
+  #containerResults{
+    width: 500px;
+  }
+
+
+  /* ___________Template___________ */
+
+  #containertemplate{
+    font-size: 13px;
+    border: 5px solid #245454;
+    padding: 20px;
+    max-width: 500px;
+    margin-bottom: 150px;
+    overflow: hidden;
+  }
+
+
+  /* ___________Excel Elements___________ */
+
+  #containerExcelElements {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+
+
+
+/* ___MEDIA QUERIES: 800px___ */
+
+@media (max-width: 800px) {
+  
+  /* __________________PÁGINA 2__________________ */
+
+  #containerPage2{
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+
+  /* ___________Inputs___________ */
+
+  #containerinputs{
+    min-width: 200px;
+    max-width: 200px;
+
+    height: 100vh;
+
+    gap: 10px;
+  }
+
+  /* ___________Results___________ */
+    
+  #containerResults{
+    max-width: 450px;
+    min-width: 450px;
+  }
+
+
+
+  /* ___________Template___________ */
+
+  #containertemplate{
+    font-size: 13px;
+    border: 5px solid #245454;
+    padding: 20px;
+    max-width: 400px;
+    margin-bottom: 150px;
+    overflow: hidden;
+  }
+
+
+  /* ___________Excel Elements___________ */
+
+  #containerExcelElements {
+    flex-direction: column;
+    max-width: 400px;
+    min-width: 400px;
+    height: 100%;
+  }
+
+}
+
+
+
+
+
+
+
+
+/* ___MEDIA QUERIES: 450px___ */
+
+@media (max-width: 450px) {
+  
+  /* __________________PÁGINA 2__________________ */
+
+  #containerPage2{
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+
+  /* ___________Inputs___________ */
+
+  #containerinputs{
+    min-width: 200px;
+    max-width: 200px;
+
+    height: 100vh;
+
+    gap: 10px;
+  }
+
+  /* ___________Results___________ */
+    
+  #containerResults{
+    max-width: 350px;
+    min-width: 350px;
+  }
+
+
+
+  /* ___________Template___________ */
+
+  #containertemplate{
+    font-size: 13px;
+    border: 5px solid #245454;
+    padding: 20px;
+    max-width: 330px;
+    margin-bottom: 150px;
+    overflow: hidden;
+  }
+
+
+  /* ___________Excel Elements___________ */
+
+  #containerExcelElements {
+    flex-direction: column;
+    max-width: 320px;
+    min-width: 320px;
+    height: 100%;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* __________________OTHERS__________________ */
+
+/* _____Elements hidden_____ */
+
+#containerPage2,
+#alertCopy,
+#inputWhatsapp,
+#inputProfile,
+#labelCheckboxPin,
+#inputCheckboxPin,
+#inputPin,
+#inputDate,
+#labelCheckboxMonths,
+#inputCheckboxMonths,
+#inputMonths,
+#containerPinToCopy,
+#containerProfileToCopy,
+#containerCellInTemplate,
+#containerNote,
+#containerCalendar,
+#containerRadioPlanAccountNetflix,
+#containerRadioPlanAccountDisney,
+#containerRadioPlanAccountCrunchyroll,
+#labelCheckboxPlan,
+#inputCheckboxPlan{
+  display: none;
+}
+
+
+
+
+
+/* _____Copy_____ */
+
+
+.elementToCopy:hover{
+  cursor: pointer;
+}
+
+
+#alertCopy{
+  position: fixed;
+  top: 2vh;
+  left: 2vw;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+}
+
+
+
+
+
+/* _____Arrow back_____ */
+
+#arrowBack{
+  position: fixed;
+  bottom: 0vh;
+  left: 0.5vw;
+  font-size: 70px;
+}
+
+
+
+#arrowBack:hover{
+  cursor: pointer;
+  color: #ff0;
+}

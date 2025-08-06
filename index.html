@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfiles</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <article id="containerPage1">
+
+      <div id="containerProfilesButtons">
+        <H2>Perfiles</H2>
+        <button type="button" id="buttonProfileNetflix" class="clickableButton">Netflix</button>
+        <button type="button" id="buttonProfileNetflixMe" class="clickableButton">Netflix ME</button>
+        <button type="button" id="buttonProfileDisney" class="clickableButton">Disney</button>
+        <button type="button" id="buttonProfileMax" class="clickableButton">Max</button>
+        <button type="button" id="buttonProfilePrimeVideo" class="clickableButton">Prime Video</button>
+        <button type="button" id="buttonProfileFlujoTv" class="clickableButton">FlujoTv</button>
+        <button type="button" id="buttonProfileParamount" class="clickableButton">Paramount</button>
+        <button type="button" id="buttonProfileCrunchyroll" class="clickableButton">Crunchyroll</button>
+        <button type="button" id="buttonProfileVix" class="clickableButton">Vix</button>
+        <button type="button" id="buttonProfileSpotify" class="clickableButton">Spotify</button>
+        <button type="button" id="buttonProfileKaelus" class="clickableButton">Kaelus</button>
+        <button type="button" id="buttonProfileCanva" class="clickableButton">Canva</button>
+        <button type="button" id="buttonProfileCapcut" class="clickableButton">Capcut</button>
+      </div>
+
+      <div id="containerAccountsButtons">
+        <H2>Cuentas</H2>
+        <button type="button" id="buttonAccountNetflix" class="clickableButton">Netflix</button>
+        <button type="button" id="buttonAccountDisney" class="clickableButton">Disney</button>
+        <button type="button" id="buttonAccountMax" class="clickableButton">Max</button>
+        <button type="button" id="buttonAccountPrimeVideo" class="clickableButton">Prime Video</button>
+        <button type="button" id="buttonAccountCrunchyroll" class="clickableButton">Crunchyroll</button>
+        <button type="button" id="buttonAccountFlujoTv" class="clickableButton">FlujoTV</button>
+        <button type="button" id="buttonAccountYoutubePremium" class="clickableButton">Youtube</button>
+        <button type="button" id="buttonAccountAppleTv" class="clickableButton">AppleTv</button>
+        <button type="button" id="buttonAccountTelelatino" class="clickableButton">Telelatino</button>
+      </div>
+
+    </article>
+
+    <article id="containerPage2">
+
+      <span id="alertCopy">Copiado al portapapeles</span>
+      <span id="arrowBack">↩</span>
+
+      <div id="containerinputs">
+
+        <input type="text" id="inputWhatsapp" class="input inputProfileOrAccount nonGeneralInput" placeholder="Contacto en Whatsapp">
+        <input type="text" id="inputUser" class="input inputProfileOrAccount" placeholder="Usuario">
+        <input type="text" id="inputPassword" class="input inputProfileOrAccount" placeholder="Contraseña">
+        <input type="text" id="inputProfile" class="input inputProfileOrAccount nonGeneralInput" placeholder="Perfil">
+
+        <label id="labelCheckboxPin" for="inputCheckboxPin" class="nonGeneralInput">Modificar pin</label>
+        <input type="checkbox" id="inputCheckboxPin" class="input inputProfileOrAccount nonGeneralInput">
+        <input type="text" id="inputPin" class="input inputProfileOrAccount nonGeneralInput" placeholder="Pin">
+
+        <label id="labelCheckboxMonths" for="inputCheckboxMonths" class="nonGeneralInput">Modificar meses</label>
+        <input type="checkbox" id="inputCheckboxMonths" class="input inputProfileOrAccount nonGeneralInput">
+        <input type="text" id="inputMonths" class="input inputProfileOrAccount nonGeneralInput" placeholder="Número de meses">
+
+        <label id="labelCheckboxDate" for="inputCheckboxDate">Modificar fecha</label>
+        <input type="checkbox" id="inputCheckboxDate" class="input inputProfileOrAccount">
+        <input type="text" id="inputDate" class="input inputProfileOrAccount nonGeneralInput" placeholder="Fecha">
+
+
+        <label id="labelCheckboxPlan" for="inputCheckboxPlan" class="nonGeneralInput">Modificar plan</label>
+        <input type="checkbox" id="inputCheckboxPlan" class="input inputProfileOrAccount nonGeneralInput">
+
+        <div id="containerRadioPlanAccountNetflix" class="nonGeneralInput">
+          <input type="radio" name="planAccountNetflix" value="Básico" id="PlanBasicNetflix" class="inputProfileOrAccount" checked>
+          <label id="labelRadioPlanBasicNetflix" for="PlanBasicNetflix">Básico</label>
+
+          <input type="radio" name="planAccountNetflix" value="Estándar" id="PlanStandardNetflix" class="inputProfileOrAccount">
+          <label id="labelRadioPlanStandardNetflix" for="PlanStandardNetflix">Estándar</label>
+
+          <input type="radio" name="planAccountNetflix" value="Premium" id="PlanPremiumNetflix" class="inputProfileOrAccount">
+          <label id="labelRadioPlanPremiumNetflix" for="PlanPremiumNetflix">Premium</label>
+        </div>
+
+        <div id="containerRadioPlanAccountDisney" class="nonGeneralInput">
+          <input type="radio" name="planAccountDisney" value="Estándar" id="PlanStandardDisney" class="inputProfileOrAccount" checked>
+          <label id="labelRadioPlanStandardDisney" for="PlanStandardDisney">Estándar</label>
+
+          <input type="radio" name="planAccountDisney" value="Premium" id="PlanPremiumDisney" class="inputProfileOrAccount">
+          <label id="labelRadioPlanPremiumDisney" for="PlanPremiumDisney">Premium</label>
+        </div>
+
+        <div id="containerRadioPlanAccountCrunchyroll" class="nonGeneralInput">
+          <input type="radio" name="planAccountCrunchyroll" value="Fan" id="PlanStandardCrunchyroll" class="inputProfileOrAccount" checked>
+          <label id="labelRadioPlanStandardCrunchyroll" for="PlanStandardCrunchyroll">Fan</label>
+
+          <input type="radio" name="planAccountCrunchyroll" value="Mega fan" id="PlanPremiumCrunchyroll" class="inputProfileOrAccount">
+          <label id="labelRadioPlanPremiumCrunchyroll" for="PlanPremiumCrunchyroll">Mega fan</label>
+        </div>
+
+      </div>
+
+
+      <div id="containerResults">
+        <div id="containertemplate" class="elementToCopy"></div>
+
+        <div id="containerExcelElements">
+          <div id="containerPinToCopy" class="nonGeneralOutput">
+            <h2 id="titlePinToCopy">PIN</h2>
+            <div id="pinToCopy" class="elementToCopy"></div>
+          </div>
+
+          <div id="containerProfileToCopy" class="nonGeneralOutput">
+            <h2 id="titleProfileToCopy">PERFIL</h2>
+            <div id="profileToCopy" class="elementToCopy"></div>
+          </div>
+
+          <div id="containerCellInTemplate" class="nonGeneralOutput">
+            <h2 id="titleCellInTemplate">PLANTILLA</h2>
+            <div id="cellInTemplate" class="elementToCopy"></div>
+          </div>
+
+          <div id="containerNote" class="nonGeneralOutput">
+            <h2 id="titleNote">NOTA</h2>
+            <div id="note" class="elementToCopy"></div>
+          </div>
+
+          <div id="containerCalendar" class="nonGeneralOutput">
+            <h2 id="titleCalendar">CALENDARIO</h2>
+            <div id="calendar" class="elementToCopy"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
