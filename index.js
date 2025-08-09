@@ -29,15 +29,13 @@ let plan = "";
 
 const createExpirationDate = ()=>{
   let date = new Date();
-
   date.setMonth(date.getMonth() + months);
-
-  let day = date.getDate().toString().padStart(2, '0');
-  let month = (date.getMonth() + 1).toString().padStart(2, '0');
+  let day = date.getDate();
+  let month = (date.getMonth() + 1);
 
   expirationDate = `${day}/${month}`;
-
 }
+
 
 createExpirationDate();
 let expirationDateCopy = expirationDate;
