@@ -57,7 +57,7 @@ let expirationDateCopy = expirationDate;
 const alertCopy = document.getElementById("alertCopy");
 const AllElementsToCopy = document.querySelectorAll(".elementToCopy");
 const arrowBack = document.getElementById("arrowBack");
-
+const trash = document.getElementById("trash");
 
 // _____PRINCIPAL CONTAINERS_____
 
@@ -227,7 +227,7 @@ radioPlanAccountNetflix.forEach((radio) => {
 arrowBack.addEventListener("click", () => {
 
   restoreAllVariablesToDefault();
-  clearAllInputs();
+  clearAccountsInputs();
   hideAllInputsNoGeneral();
   hideAllOutputsNoGeneral();
 
@@ -236,6 +236,17 @@ arrowBack.addEventListener("click", () => {
   containerPage1.style.display = "flex";
   containerPage2.style.display = "none";
 
+});
+
+
+
+
+
+// ______TRASH______
+  
+trash.addEventListener("click", () => {
+  clearAllInputs();
+  updateAll()
 });
 
 
@@ -311,13 +322,64 @@ function updateTextContentOfOutputs(){
   cellInTemplate.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} - ${expirationDate}`;
   note.textContent = `${pin} ${whatsappContact.toUpperCase()}`;
 
+
+  if(buttonSelected === buttonProfileMax && !inputCheckboxPin.checked){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
+  if(buttonSelected === buttonProfilePrimeVideo && !inputCheckboxPin.checked){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
+  if(buttonSelected === buttonProfileFlujoTv){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
+  if(buttonSelected === buttonProfileParamount && !inputCheckboxPin.checked){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
+  if(buttonSelected === buttonProfileCrunchyroll && !inputCheckboxPin.checked){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
+  if(buttonSelected === buttonProfileVix && !inputCheckboxPin.checked){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
   if(buttonSelected === buttonProfileSpotify){
     let email = user.split('@')[0];
     cellInTemplate.textContent = `${email.charAt(0).toUpperCase() + email.slice(1).toLowerCase()} - ${expirationDate}`;
 
     note.textContent = `${whatsappContact.toUpperCase()}`;
   }
+
+
+  if(buttonSelected === buttonProfileKaelus){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
+  if(buttonSelected === buttonProfileCanva){
+    let email = user.split('@')[0];
+
+    calendar.textContent = `${email.charAt(0).toUpperCase() + email.slice(1).toLowerCase()} canva ${whatsappContact.toUpperCase()}`;
+  }
+
+
+  if(buttonSelected === buttonProfileCapcut){
+    note.textContent = `${whatsappContact.toUpperCase()}`;
+  }
+
+
 }
+
 
 
 
@@ -357,6 +419,15 @@ function clearAllInputs(){
     input.checked = false;
 
   });
+}
+
+
+
+// ______CLEAR ACCOUNTS INPUTS______
+
+function clearAccountsInputs(){
+  inputUser.value = "";
+  inputPassword.value = "";
 }
 
 
@@ -454,7 +525,7 @@ function updateAll(){
     containertemplate.textContent = `*NETFLIX*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile.toUpperCase()}
 🔐 *PIN* ${pin}
@@ -491,13 +562,14 @@ _*Normas de uso*_
 
     // Show template
 
-    containertemplate.textContent = `NETFLIX
+    containertemplate.textContent = `*NETFLIX*
 MIEMBRO EXTRA
 
-💌 CORREO: ${user}
-🔐 CONTRASEÑA: ${password}
-👤 Usuario: ${profile}
-📆 Vence: ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+
+👤 *PERFIL* ${profile}
+📆 *VENCE* ${expirationDate}`;
 
     updateTextContentOfOutputs();
   }
@@ -537,16 +609,16 @@ MIEMBRO EXTRA
     containertemplate.textContent = `*DISNEY+*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 🔐 *PIN* ${pin}
 📆 *VENCE* ${expirationDate}
 
 _*Normas*_
-❗️ *-El uso debe ser en 1 dispositivo.*
-❗️ *- Verifique estar escribiendo bien los datos de la cuenta, sobre todo la contraseña (si lleva mayúsculas, minúsculas, símbolos, colóquelos segun lo indicado)*
-*❗️-Evite cerrar sesión*`;
+❗️ - El uso debe ser en 1 dispositivo.
+❗️ - Verifique estar escribiendo bien los datos de la cuenta, sobre todo la contraseña (si lleva mayúsculas, minúsculas, símbolos, colóquelos segun lo indicado).
+❗️ - Evite cerrar sesión`;
 
     updateTextContentOfOutputs();
     calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} disn ${whatsappContact.toUpperCase()}`;
@@ -582,7 +654,7 @@ _*Normas*_
       containertemplate.textContent = `*MAX*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 🔐 *PIN* ${pin}
@@ -598,7 +670,7 @@ _*Normas*_
       containertemplate.textContent = `*MAX*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 📆 *VENCE* ${expirationDate}`;
@@ -645,7 +717,7 @@ _*Normas*_
       containertemplate.textContent = `*AMAZON PRIME VIDEO*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 🔐 *PIN* ${pin}
@@ -654,7 +726,7 @@ _*Normas*_
 _*Normas*_
 ❗️ *_Al entrar a Prime verificar estar dentro del perfil con su nombre, a través del ícono Mi Espacio_*
 
-❗️ _*Si está contratando UNA pantalla, el uso debe ser en UN dispositivo. Si se detectan más dispositivos se le cerrará la sesión y perderá la garantía*_
+❗️ *_Si está contratando UNA pantalla, el uso debe ser en UN dispositivo. Si se detectan más dispositivos se le cerrará la sesión y perderá la garantía_*
 
 ❗️ *_No hacer compras o realizar pedidos a través de Amazon, ni ingresar a la página de Amazon compras. Perderá garantía_*`;
 
@@ -668,7 +740,7 @@ _*Normas*_
       containertemplate.textContent = `*AMAZON PRIME VIDEO*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 📆 *VENCE* ${expirationDate}
@@ -676,7 +748,7 @@ _*Normas*_
 _*Normas*_
 ❗️ *_Al entrar a Prime verificar estar dentro del perfil con su nombre, a través del ícono Mi Espacio_*
 
-❗️ _*Si está contratando UNA pantalla, el uso debe ser en UN dispositivo. Si se detectan más dispositivos se le cerrará la sesión y perderá la garantía*_
+❗️ *_Si está contratando UNA pantalla, el uso debe ser en UN dispositivo. Si se detectan más dispositivos se le cerrará la sesión y perderá la garantía*_
 
 ❗️ *_No hacer compras o realizar pedidos a través de Amazon, ni ingresar a la página de Amazon compras. Perderá garantía_*`;
 
@@ -713,14 +785,14 @@ _*Normas*_
 
     // Show template  
 
-    containertemplate.textContent = `*FlujoTV* | ${profile}
-1 dispositivo
+    containertemplate.textContent = `*FLUJO TV* | ${profile}
+1 DISPOSITIVO❗️
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 📆 *VENCE* ${expirationDate}
 
-*❌Prohibido cambiar la clave*`;
+*❌ Prohibido cambiar la clave*`;
 
     updateTextContentOfOutputs();
     calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} flujo ${whatsappContact.toUpperCase()}`;
@@ -751,11 +823,10 @@ _*Normas*_
 
     if(inputCheckboxPin.checked){
       containertemplate.textContent = `*PARAMOUNT +*
-
-1 dispositivo❗️
+1 DISPOSITIVO❗️
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 🔐 *PIN* ${pin}
@@ -769,11 +840,10 @@ _*Normas*_
 
     } else{
       containertemplate.textContent = `*PARAMOUNT +*
-
-1 dispositivo❗️
+1 DISPOSITIVO❗️
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 📆 *VENCE* ${expirationDate}`;
@@ -816,15 +886,14 @@ _*Normas*_
 
     if(inputCheckboxPin.checked){
       containertemplate.textContent = `*CRUNCHYROLL*
+1 DISPOSITIVO❗️
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
 🔐 *PIN* ${pin}
-📆 *VENCE* ${expirationDate}
-
-1 dispositivo‼️`;
+📆 *VENCE* ${expirationDate}`;
 
       inputPin.style.display = "inline-block";
 
@@ -834,14 +903,13 @@ _*Normas*_
 
     } else{
       containertemplate.textContent = `*CRUNCHYROLL*
+1 DISPOSITIVO❗️
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
+🔑 *CONTRASEÑA* ${password}
 
 👤 *PERFIL* ${profile}
-📆 *VENCE* ${expirationDate}
-
-1 dispositivo‼️`;
+📆 *VENCE* ${expirationDate}`;
 
       updateTextContentOfOutputs();
 
@@ -881,13 +949,14 @@ _*Normas*_
 
     if(inputCheckboxPin.checked){
       containertemplate.textContent = `*VIX PREMIUM*
-1 dispositivo 
+1 DISPOSITIVO❗️
 
-💌 CORREO: ${user}
-🔐 CONTRASEÑA: ${password}
-👤 NOMBRE DEL PERFIL: ${profile}
-🔐 PIN ${pin}
-📆 FECHA DE VENCIMIENTO: ${expirationDate}`;
+📧 *USUARIO* ${user}
+🔑 *CONTRASEÑA* ${password}
+
+👤 *PERFIL* ${profile}
+🔐 *PIN* ${pin}
+📆 *VENCE* ${expirationDate}`;
 
       inputPin.style.display = "inline-block";
 
@@ -897,12 +966,13 @@ _*Normas*_
 
     } else{
       containertemplate.textContent = `*VIX PREMIUM*
-1 dispositivo 
+1 DISPOSITIVO❗️
 
-💌 CORREO: ${user}
-🔐 CONTRASEÑA: ${password}
-👤 NOMBRE DEL PERFIL: ${profile}
-📆 FECHA DE VENCIMIENTO: ${expirationDate}`;
+📧 *USUARIO* ${user}
+🔑 *CONTRASEÑA* ${password}
+
+👤 *PERFIL* ${profile}
+📆 *VENCE* ${expirationDate}`;
 
       updateTextContentOfOutputs();
 
@@ -944,18 +1014,18 @@ _*Normas*_
     // Show template
 
     if(months > 1){
-      containertemplate.textContent = `*Spotify ${months} meses ✅*
+      containertemplate.textContent = `*SPOTIFY | ${months} MESES ✅*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
-📆 *VENCE*: ${expirationDate}`
+🔑 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`
 
   } else{
-      containertemplate.textContent = `*Spotify ${months} mes ✅*
+      containertemplate.textContent = `*SPOTIFY | ${months} MES ✅*
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
-📆 *VENCE*: ${expirationDate}`
+🔑 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`
 
     }
      
@@ -983,11 +1053,11 @@ _*Normas*_
     // Show template  
 
     containertemplate.textContent = `*KAELUS TV PLUS* | ${profile}
-1 Dispositivo
+1 DISPOSITIVO❗️
 
 📧 *USUARIO* ${user}
-🔑 *CLAVE* ${password}
-📆 *VENCE* ${expirationDate}`
+🔑 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
     updateTextContentOfOutputs();
     calendar.textContent = `${profile.charAt(0).toUpperCase() + profile.slice(1).toLowerCase()} kaelus ${whatsappContact.toUpperCase()}`;
@@ -1026,33 +1096,32 @@ _*Normas*_
     // Show template
 
     if(months > 1){
-      containertemplate.textContent = `CanvaPRO ${months} meses ✅
+      containertemplate.textContent = `CANVA PRO | ${months} MESES ✅
 
-💌 Correo: ${user}
-📆 Vence: ${expirationDate}
+💌 *USUARIO* ${user}
+📆 *VENCE* ${expirationDate}
 
-Instrucciones:
-Acepte la invitación que llegó a su correo; luego, en Canva ingrese al perfil nuevo llamado -Pagofacil-, allí tendrá todas las funciones PRO.
+_*Instrucciones*_
+- Acepte la invitación que llegó a su correo; luego, en Canva ingrese al perfil nuevo llamado -Pagofacil-, allí tendrá todas las funciones PRO.
 
-Recomendación:
-Guarde respaldo de sus diseños en su perfil personal.`
+_*Recomendación*_
+✅ Guarde respaldo de sus diseños en su perfil personal.`;
 
-  } else{
-      containertemplate.textContent = `CanvaPRO ${months} mes ✅
+    } else{
+      containertemplate.textContent = `CANVA PRO | ${months} MES ✅
 
-💌 Correo: ${user}
-📆 Vence: ${expirationDate}
+💌 *USUARIO* ${user}
+📆 *VENCE* ${expirationDate}
 
-Instrucciones:
-Acepte la invitación que llegó a su correo; luego, en Canva ingrese al perfil nuevo llamado -Pagofacil-, allí tendrá todas las funciones PRO.
+_*Instrucciones*_
+- Acepte la invitación que llegó a su correo; luego, en Canva ingrese al perfil nuevo llamado -Pagofacil-, allí tendrá todas las funciones PRO.
 
-Recomendación:
-Guarde respaldo de sus diseños en su perfil personal.`
+_*Recomendación*_
+✅ Guarde respaldo de sus diseños en su perfil personal.`;
 
     }
      
     updateTextContentOfOutputs();
-    calendar.textContent = `canva ${whatsappContact.toUpperCase()}`;
   }
 
 
@@ -1068,15 +1137,16 @@ Guarde respaldo de sus diseños en su perfil personal.`
 
     // Show template
 
-  containertemplate.textContent = `CAPCUT 
+  containertemplate.textContent = `*CAPCUT*
 
-💌 Correo: ${user}
-🔐 Clave: ${password}
-📆 Vence: ${expirationDate}
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}
 
-❗️Solo usar en 1 dispositivo.
-❗️Sólo damos garantía por suscripción no por uso indebido de la cuenta.
-❗️No afiliar a Tiktok.`;
+_*Normas de uso*_
+❗️ Usar solo en un dispositivo.
+❗️ Sólo damos garantía por suscripción, no por uso indebido de la cuenta.
+❗️ No afiliar a Tiktok.`;
 
 
     calendar.textContent = `capcut ${whatsappContact.toUpperCase()}`;
@@ -1121,11 +1191,11 @@ Guarde respaldo de sus diseños en su perfil personal.`
 
 
     containertemplate.textContent = `*NETFLIX*
-Cuenta completa/ Plan ${plan}
+CUENTA COMPLETA ✅ / PLAN ${plan.toUpperCase()}
 
-💌 ${user}
-🔐 ${password}
-📆 Vence: ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
 
 
@@ -1154,12 +1224,12 @@ Cuenta completa/ Plan ${plan}
 
     // Show template
 
-    containertemplate.textContent = `DISNEY +
-Cuenta completa/ Plan ${plan}
+    containertemplate.textContent = `*DISNEY +*
+CUENTA COMPLETA ✅ / PLAN ${plan.toUpperCase()}
 
-💌 ${user}
-🔐 ${password}
-📆 ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
     updateTextContentOfOutputs();
   }
@@ -1174,12 +1244,12 @@ Cuenta completa/ Plan ${plan}
 
     // Show template
 
-    containertemplate.textContent = `MAX
-Cuenta completa
+    containertemplate.textContent = `*MAX*
+CUENTA COMPLETA ✅
 
-💌 ${user}
-🔐 ${password}
-📆 ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
     updateTextContentOfOutputs();
   }
@@ -1192,12 +1262,12 @@ Cuenta completa
 
     // Show template
 
-    containertemplate.textContent = `Amazon Prime Video
-Cuenta completa
+    containertemplate.textContent = `*AMAZON PRIME VIDEO*
+CUENTA COMPLETA ✅
 
-💌 ${user}
-🔐 ${password}
-📆 ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
     updateTextContentOfOutputs();
   }
@@ -1225,11 +1295,12 @@ Cuenta completa
     // Show template
 
     containertemplate.textContent = `CRUNCHYROLL
-Cuenta completa / Plan ${plan}
+CUENTA COMPLETA ✅ / PLAN ${plan.toUpperCase()}
 
-💌 ${user}
-🔐 ${password}
-📆 ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
+
 
     updateTextContentOfOutputs();
   }
@@ -1255,23 +1326,23 @@ Cuenta completa / Plan ${plan}
     // Show template
 
     if(months > 1){
-      containertemplate.textContent = `FlujoTV ${months} meses ✅
-Cuenta completa
+      containertemplate.textContent = `FLUJO TV | ${months} MESES ✅
+CUENTA COMPLETA
 
-💌 Usuario: ${user}
-🔐 Contraseña: ${password}
-📆 Fecha de vencimiento: ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
 
-  } else{
-      containertemplate.textContent = `FlujoTV ${months} mes ✅
-Cuenta completa
+    } else{
+      containertemplate.textContent = `FLUJO TV | ${months} MES ✅
+CUENTA COMPLETA
 
-💌 Usuario: ${user}
-🔐 Contraseña: ${password}
-📆 Fecha de vencimiento: ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
-      }
+    }
     updateTextContentOfOutputs();
   }
 
@@ -1285,12 +1356,12 @@ Cuenta completa
 
     // Show template
 
-    containertemplate.textContent = `YouTube Premium + Music 🎧✅
-📆 1 mes
+    containertemplate.textContent = `YOUTUBE PREMIUM + MUSIC 🎧
+📆 1 MES ✅
 
-💌 ${user}
-🔐 ${password}
-📆 ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
     updateTextContentOfOutputs();
   }
@@ -1317,19 +1388,19 @@ Cuenta completa
     // Show template
 
     if(months > 1){
-      containertemplate.textContent = `APPLETV ${months} meses ✅
+      containertemplate.textContent = `APPLE TV | ${months} MESES ✅
 
-💌 ${user}
-🔐 ${password}
-📆 ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
 
   } else{
-      containertemplate.textContent = `APPLETV ${months} mes ✅
+      containertemplate.textContent = `APPLE TV | ${months} MES ✅
 
-💌 ${user}
-🔐 ${password}
-📆 ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
       }
     updateTextContentOfOutputs();
@@ -1345,12 +1416,12 @@ Cuenta completa
 
     // Show template
 
-    containertemplate.textContent = `TeleLatino
-Cuenta completa
+    containertemplate.textContent = `*TELELATINO*
+CUENTA COMPLETA ✅
 
-💌 Usuario: ${user}
-🔐 Contraseña: ${password}
-📆 Vence: ${expirationDate}`;
+💌 *USUARIO* ${user}
+🔐 *CONTRASEÑA* ${password}
+📆 *VENCE* ${expirationDate}`;
 
     updateTextContentOfOutputs();
   }

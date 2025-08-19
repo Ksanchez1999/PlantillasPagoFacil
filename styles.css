@@ -87,60 +87,6 @@
 
 
 
-/* ____MEDIA QUERIES: 700px____ */
-
-
-@media (max-width: 700px) {
-
-  #containerPage1{
-    gap: 70px;
-  }
-
-  #containerPage1 div{
-    width: 260px;
-  }
-
-
-  #containerPage1 div button{
-    width: 125px;
-    font-size: 15px; 
-  }
-
-  #containerPage1 h2{
-    font-size: 30px;
-  }
-}
-
-
-
-/* ____MEDIA QUERIES: 500px____ */
-
-
-@media (max-width: 500px) {
-
-  #containerPage1{
-    gap: 20px;
-  }
-
-  #containerPage1 div{
-    width: 120px;
-    height: 85vh;
-  }
-
-
-  #containerPage1 div button{
-    height: 30px;
-    width: 110px;
-    font-size: 12px; 
-  }
-
-  #containerPage1 h2{
-    font-size: 22px;
-    top: -30px;
-  }
-}
-
-
 
 
 
@@ -417,252 +363,6 @@ input[type="radio"]:checked {
 
 
 
-/* ___MEDIA QUERIES: 1000px___ */
-
-@media (max-width: 1000px) {
-  
-  /* __________________PÁGINA 2__________________ */
-
-  #containerPage2{
-    flex-direction: column;
-
-    padding: 0;
-  }
-
-
-  /* ___________Inputs___________ */
-
-  #containerinputs{
-    min-width: 200px;
-    max-width: 200px;
-
-    height: 100vh;
-
-    gap: 10px;
-  }
-
-  /* ___________Results___________ */
-    
-  #containerResults{
-    width: 700px;
-  }
-
-  /* ___________Template___________ */
-
-  #containertemplate{
-    font-size: 13px;
-    border: 5px solid #245454;
-    padding: 20px;
-    max-width: 500px;
-    margin-bottom: 150px;
-    overflow: hidden;
-  }
-
-
-  /* ___________Excel Elements___________ */
-
-  #containerExcelElements {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 500px;
-    overflow: hidden;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-/* ___MEDIA QUERIES: 800px___ */
-
-@media (max-width: 800px) {
-  
-  /* __________________PÁGINA 2__________________ */
-
-  #containerPage2{
-    flex-direction: column;
-
-    padding: 0;
-  }
-
-
-  /* ___________Inputs___________ */
-
-  #containerinputs{
-    min-width: 200px;
-    max-width: 200px;
-
-    height: 100vh;
-
-    gap: 10px;
-  }
-
-  /* ___________Results___________ */
-    
-  #containerResults{
-    width: 500px;
-  }
-
-
-  /* ___________Template___________ */
-
-  #containertemplate{
-    font-size: 13px;
-    border: 5px solid #245454;
-    padding: 20px;
-    max-width: 500px;
-    margin-bottom: 150px;
-    overflow: hidden;
-  }
-
-
-  /* ___________Excel Elements___________ */
-
-  #containerExcelElements {
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-
-}
-
-
-
-
-/* ___MEDIA QUERIES: 800px___ */
-
-@media (max-width: 800px) {
-  
-  /* __________________PÁGINA 2__________________ */
-
-  #containerPage2{
-    flex-direction: column;
-
-    padding: 0;
-  }
-
-
-  /* ___________Inputs___________ */
-
-  #containerinputs{
-    min-width: 200px;
-    max-width: 200px;
-
-    height: 100vh;
-
-    gap: 10px;
-  }
-
-  /* ___________Results___________ */
-    
-  #containerResults{
-    max-width: 450px;
-    min-width: 450px;
-  }
-
-
-
-  /* ___________Template___________ */
-
-  #containertemplate{
-    font-size: 13px;
-    border: 5px solid #245454;
-    padding: 20px;
-    max-width: 400px;
-    margin-bottom: 150px;
-    overflow: hidden;
-  }
-
-
-  /* ___________Excel Elements___________ */
-
-  #containerExcelElements {
-    flex-direction: column;
-    max-width: 400px;
-    min-width: 400px;
-    height: 100%;
-  }
-
-}
-
-
-
-
-
-
-
-
-/* ___MEDIA QUERIES: 450px___ */
-
-@media (max-width: 450px) {
-  
-  /* __________________PÁGINA 2__________________ */
-
-  #containerPage2{
-    flex-direction: column;
-
-    padding: 0;
-  }
-
-
-  /* ___________Inputs___________ */
-
-  #containerinputs{
-    min-width: 200px;
-    max-width: 200px;
-
-    height: 100vh;
-
-    gap: 10px;
-  }
-
-  /* ___________Results___________ */
-    
-  #containerResults{
-    max-width: 350px;
-    min-width: 350px;
-  }
-
-
-
-  /* ___________Template___________ */
-
-  #containertemplate{
-    font-size: 13px;
-    border: 5px solid #245454;
-    padding: 20px;
-    max-width: 330px;
-    margin-bottom: 150px;
-    overflow: hidden;
-  }
-
-
-  /* ___________Excel Elements___________ */
-
-  #containerExcelElements {
-    flex-direction: column;
-    max-width: 320px;
-    min-width: 320px;
-    height: 100%;
-  }
-
-}
-
-
-
-
-
-
-
 
 
 
@@ -735,3 +435,312 @@ input[type="radio"]:checked {
   cursor: pointer;
   color: #ff0;
 }
+
+
+
+
+
+
+/* _____trash_____ */
+
+#trash{
+  position: fixed;
+  bottom: 4vh;
+  right: 2vw;
+  font-size: 25px;
+}
+
+
+
+#trash:hover{
+  cursor: pointer;
+  color: #ff0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ________________________MEDIA QUERIES: 1000px________________________ */
+
+@media (max-width: 1000px) {
+  
+  /* __________________PÁGINA 2__________________ */
+
+  #containerPage2{
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+
+  /* ___________Inputs___________ */
+
+  #containerinputs{
+    min-width: 200px;
+    max-width: 200px;
+
+    height: 100vh;
+
+    gap: 10px;
+  }
+
+  /* ___________Results___________ */
+    
+  #containerResults{
+    width: 700px;
+  }
+
+  /* ___________Template___________ */
+
+  #containertemplate{
+    font-size: 13px;
+    border: 5px solid #245454;
+    padding: 20px;
+    max-width: 500px;
+    margin-bottom: 150px;
+    overflow: hidden;
+  }
+
+
+  /* ___________Excel Elements___________ */
+
+  #containerExcelElements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 500px;
+    overflow: hidden;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ________________________MEDIA QUERIES: 800px________________________ */
+
+@media (max-width: 800px) {
+  
+  /* __________________PÁGINA 2__________________ */
+
+  #containerPage2{
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+
+  /* ___________Inputs___________ */
+
+  #containerinputs{
+    min-width: 200px;
+    max-width: 200px;
+
+    height: 100vh;
+
+    gap: 10px;
+  }
+
+  /* ___________Results___________ */
+    
+  #containerResults{
+    width: 500px;
+  }
+
+
+  /* ___________Template___________ */
+
+  #containertemplate{
+    font-size: 13px;
+    border: 5px solid #245454;
+    padding: 20px;
+    max-width: 500px;
+    margin-bottom: 150px;
+    overflow: hidden;
+  }
+
+
+  /* ___________Excel Elements___________ */
+
+  #containerExcelElements {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+
+
+
+
+/* ________________________MEDIA QUERIES: 700px________________________ */
+
+
+@media (max-width: 700px) {
+
+  #containerPage1{
+    gap: 70px;
+  }
+
+  #containerPage1 div{
+    width: 260px;
+  }
+
+
+  #containerPage1 div button{
+    width: 125px;
+    font-size: 15px; 
+  }
+
+  #containerPage1 h2{
+    font-size: 30px;
+  }
+}
+
+
+
+
+
+
+
+/* ________________________MEDIA QUERIES: 500px________________________ */
+
+
+@media (max-width: 500px) {
+
+  #containerPage1{
+    gap: 20px;
+  }
+
+  #containerPage1 div{
+    width: 120px;
+    height: 85vh;
+  }
+
+
+  #containerPage1 div button{
+    height: 30px;
+    width: 110px;
+    font-size: 12px; 
+  }
+
+  #containerPage1 h2{
+    font-size: 22px;
+    top: -30px;
+  }
+}
+
+
+
+
+
+
+
+
+/* ________________________MEDIA QUERIES: 450px________________________ */
+
+@media (max-width: 450px) {
+  
+  /* __________________PÁGINA 2__________________ */
+
+  #containerPage2{
+    flex-direction: column;
+
+    padding: 0;
+  }
+
+
+  /* ___________Inputs___________ */
+
+  #containerinputs{
+    min-width: 200px;
+    max-width: 200px;
+
+    height: 100vh;
+
+    gap: 10px;
+  }
+
+  /* ___________Results___________ */
+    
+  #containerResults{
+    max-width: 350px;
+    min-width: 350px;
+  }
+
+
+
+  /* ___________Template___________ */
+
+  #containertemplate{
+    font-size: 13px;
+    border: 5px solid #245454;
+    padding: 20px;
+    max-width: 330px;
+    margin-bottom: 150px;
+    overflow: hidden;
+  }
+
+
+  /* ___________Excel Elements___________ */
+
+  #containerExcelElements {
+    flex-direction: column;
+    max-width: 320px;
+    min-width: 320px;
+    height: 100%;
+  }
+
+
+
+
+
+  /* _____trash_____ */
+
+  #trash{
+    position: fixed;
+    bottom: 4vh;
+    right: 5vw;
+    font-size: 20px;
+  }
+
+
+
+  #trash:hover{
+    cursor: pointer;
+    color: #ff0;
+  }
+
+
+}
+
+
+
+
