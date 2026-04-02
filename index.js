@@ -1392,7 +1392,9 @@ CUENTA COMPLETA
 
 💌 *USUARIO* ${user}
 🔐 *CONTRASEÑA* ${password}
-📆 *VENCE* ${expirationDate}`;
+📆 *VENCE* ${expirationDate}
+
+*_Sólo para uso de TV y WEB_*`;
 
 
   } else{
@@ -1400,7 +1402,9 @@ CUENTA COMPLETA
 
 💌 *USUARIO* ${user}
 🔐 *CONTRASEÑA* ${password}
-📆 *VENCE* ${expirationDate}`;
+📆 *VENCE* ${expirationDate}
+
+*_Sólo para uso de TV y WEB_*`;
 
       }
     updateTextContentOfOutputs();
